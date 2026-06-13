@@ -27,9 +27,15 @@ export default function ProjectCard({ project }: ProjectCardProps) {
           <br/>
           <p className="project-tech-stack text-[12px] font-bold text-[var(--color-custom-dark-blue)]">{project.techStack}</p>
           <p className="project-description mt-2">
-            <a className="text-[var(--color-custom-blue)] font-bold hover:underline" href={project.repoUrl} target="_blank" rel="noreferrer">Repo</a> 
-            <span className="mx-1 text-[var(--color-custom-dark-blue)]">|</span> 
-            <a className="text-[var(--color-custom-blue)] font-bold hover:underline" href={project.DemoUrl} target="_blank" rel="noreferrer">Demo</a>
+            {project.repoUrl && project.repoUrl !== '#' && (
+              <a className="text-[var(--color-custom-blue)] font-bold hover:underline" href={project.repoUrl} target="_blank" rel="noreferrer">Repo</a>
+            )}
+            {project.repoUrl && project.repoUrl !== '#' && project.DemoUrl && project.DemoUrl !== '#' && (
+              <span className="mx-1 text-[var(--color-custom-dark-blue)]">|</span>
+            )}
+            {project.DemoUrl && project.DemoUrl !== '#' && (
+              <a className="text-[var(--color-custom-blue)] font-bold hover:underline" href={project.DemoUrl} target="_blank" rel="noreferrer">Demo</a>
+            )}
           </p>
         </div>
       </div>

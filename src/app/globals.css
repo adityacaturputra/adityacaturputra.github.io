@@ -1,0 +1,100 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-custom-bg: #EEEEEE;
+  --color-custom-dark-blue: #476072;
+  --color-custom-blue: #548CA8;
+  --color-custom-overlay: #eeeeeef5;
+  --radius-project: 20px 100px 20px 20px;
+  --radius-project-base: 20px;
+  --font-inter: "Inter", sans-serif;
+}
+
+body {
+  background-color: var(--color-custom-bg);
+  color: var(--color-custom-dark-blue);
+  font-family: var(--font-inter);
+}
+
+/* Custom styles for animations that are too complex for pure utility classes 
+   or specific to legacy behavior */
+.nav-item {
+  border-bottom: solid 2px transparent;
+  transition: all .2s;
+}
+
+.nav-item:hover {
+  border-bottom: solid 2px var(--color-custom-dark-blue);
+  color: var(--color-custom-dark-blue);
+}
+
+.nav-item:active {
+  color: var(--color-custom-blue);
+  border-bottom: solid 2px var(--color-custom-blue);
+}
+
+.btn-cv {
+  background: var(--color-custom-blue);
+  color: var(--color-custom-bg);
+  border: solid 2px var(--color-custom-blue);
+  transition: all .3s;
+}
+
+.btn-cv:hover {
+  background: var(--color-custom-dark-blue);
+  border: solid 2px var(--color-custom-dark-blue);
+}
+
+.btn-cv:active {
+  color: var(--color-custom-dark-blue);
+  background: var(--color-custom-bg);
+}
+
+.project-container {
+  border: solid 2px rgba(71, 96, 114, 0.07); /* #47607212 */
+  border-radius: var(--radius-project);
+  transition: all .3s;
+}
+
+.project-container:hover {
+  border: solid 2px var(--color-custom-dark-blue);
+}
+
+.project-container:hover .project-text {
+  bottom: 20px;
+  left: 12px;
+  opacity: 1;
+}
+
+.project-container:hover .project-image__img {
+  border-radius: var(--radius-project);
+}
+
+.project-container:hover .project-image__img-overlay {
+  background-color: var(--color-custom-overlay);
+}
+
+.project-container:hover .project-title {
+  visibility: hidden;
+  opacity: 0;
+  margin-top: -50px;
+}
+
+.project-image__img {
+  border-radius: var(--radius-project-base);
+  transition: all .3s;
+}
+
+.project-image__img-overlay {
+  background-color: rgba(51, 66, 87, 0);
+  border-radius: var(--radius-project);
+  transition: background-color 300ms linear;
+}
+
+.project-text {
+  transition: all .3s;
+}
+
+.project-title {
+  transition: all .3s;
+}

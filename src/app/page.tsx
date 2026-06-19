@@ -9,7 +9,12 @@ export const revalidate = 3600;
 async function getProjects() {
   await dbConnect();
   const projects = await Project.find({}).sort({ createdAt: -1 }).lean();
-  return projects;
+  return projects.map((p: any) => ({
+    ...p,
+    _id: p._id.toString(),
+    createdAt: p.createdAt?.toISOString() || null,
+    updatedAt: p.updatedAt?.toISOString() || null
+  }));
 }
 
 export default async function Home() {
